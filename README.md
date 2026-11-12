@@ -2,26 +2,35 @@
 
 A free [Claude](https://claude.ai) skill that builds a **route advance** for a small executive protection drive team (1 to 3 people) from just a list of addresses, a date and a time.
 
-Created by **David MacVittie**. First public release: v1.0, November 2026.
+Created by **David MacVittie**. First public release: v1.0, November 2026. Current: v1.1 (simpler, more visual layout).
 
 ## What it makes
 
-A PDF route advance, 20 pages or so for a three-leg move, with:
+A PDF route advance, about 16 pages for a three-leg move, kept visual:
 
-- A how-to-read page, cover and trip timeline
-- A map page per leg, then a primary and an alternate **strip map** (left turns above the line, right turns below, miles between turns, checkpoints) with a step-by-step table
-- Predictable spots on each route, each with an "if blocked, go" plan
-- Hospital runs turn by turn, and a rally point per stop
-- A citywide events and closures check, and weather
-- An overhead view of each stop with entrances, drop-off and pick-up points
-- Green, amber or red verdicts, comms, and a hand-off to the site advance person
+- A how-to-read page, then a cover with general info, the timeline with verdicts, and weather
+- A trip map with two labeled QR codes per place (a location pin and a Street View of the curb), and the events that touch the route
+- A map page per leg: the route map and the drop-off's overhead view with its drop-off, backup and rally points
+- A **strip map** per route (left turns above the line, right turns below, miles between turns, checkpoints) with a step-by-step table and notes, including an "if blocked, go" for every predictable spot, and a QR code that loads that route into Google Maps
+- Two routes per leg by default, or three if you ask
+- Hospital runs turn by turn, and a one-page tick-box checklist for recon, day-of and comms
+- Green or amber verdicts from public data; red is left to the team after the advance drive
+- A blank recon log and an after-move note
 
 See [`sample/dc-route-advance-sample.pdf`](sample/dc-route-advance-sample.pdf) for a full example (Washington, DC, public places only).
 
 ## What you need
 
 - A paid Claude plan with **Code execution and file creation** turned on (Settings > Capabilities)
-- A mapping connector in Claude: **Mapbox** (first choice) or **TomTom**. Without one, the skill still works but marks routes and times as estimates to confirm.
+- Three connectors in Claude, all recommended. Connect them before your first run; the skill checks at the start and tells you which are missing.
+
+| Connector | What it adds | Without it |
+|---|---|---|
+| **Mapbox** | The maps (trip map, leg maps, stop overheads), routes, turn-by-turn steps, drive times and address checks | Map pages show an empty box, and routes and times are marked as estimates to confirm on recon |
+| **TomTom** | Live traffic, closures and roadworks, and alternate routes on short city legs | Closures come only from city DOT or 511 sites found by web search, and some short legs may have no alternate |
+| **AccuWeather** | The forecast for the day of the move | Weather comes from web search, or the normal for the date if the forecast isn't out |
+
+The skill still builds a packet with any of them missing, but it is less complete and says so.
 
 Nothing runs on your computer. The skill uses only Claude's own tools.
 
@@ -40,7 +49,7 @@ End: The Willard
 Date: next Friday
 ```
 
-Claude asks once for anything it can't assume, then builds the PDF.
+You can also give a code name, the number of cars, who greets the car at the venue, and 2 or 3 routes per leg (2 if you don't say). Claude asks once for anything it can't assume, then builds the PDF.
 
 ## Feedback and suggestions
 
