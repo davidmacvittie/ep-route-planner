@@ -6,13 +6,13 @@ Created by **David MacVittie**. First public release: v1.0, November 2026. Curre
 
 ## What it makes
 
-A PDF route advance, about 16 pages for a three-leg move, kept visual:
+A PDF route advance, about 19 pages for a three-leg move with three routes per leg, kept visual:
 
 - A how-to-read page, then a cover with general info, the timeline with verdicts, and weather
 - A trip map with two labeled QR codes per place (a location pin and a Street View of the curb), and the events that touch the route
 - A map page per leg: the route map and the drop-off's overhead view with its drop-off, backup and rally points
 - A **strip map** per route (left turns above the line, right turns below, miles between turns, checkpoints) with a step-by-step table and notes, including an "if blocked, go" for every predictable spot, and a QR code that loads that route into Google Maps
-- Two routes per leg by default, or three if you ask
+- Three routes per leg by default (a primary and two alternates), or two if you ask
 - Hospital runs turn by turn, and a one-page tick-box checklist for recon, day-of and comms
 - Green or amber verdicts from public data; red is left to the team after the advance drive
 - A blank recon log and an after-move note
@@ -49,7 +49,7 @@ End: The Willard
 Date: next Friday
 ```
 
-You can also give a code name, the number of cars, who greets the car at the venue, and 2 or 3 routes per leg (2 if you don't say). Claude asks once for anything it can't assume, then builds the PDF.
+You can also give a code name, the number of cars, who greets the car at the venue, and 2 or 3 routes per leg (3 if you don't say). Claude asks once for anything it can't assume, then builds the PDF.
 
 ## Feedback and suggestions
 
